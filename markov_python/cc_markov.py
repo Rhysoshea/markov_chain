@@ -8,7 +8,6 @@ Codecademy Pro Final Project supplementary code
 Markov Chain generator
   This is a text generator that uses Markov Chains to generate text
   using a uniform distribution.
-
   num_key_words is the number of words that compose a key (suggested: 2 or 3)
 """
 
@@ -54,7 +53,7 @@ class MarkovChain:
     if len(data) < self.num_key_words:
       return
 
-    for i in xrange(len(data) - self.num_key_words):
+    for i in range(len(data) - self.num_key_words):
       yield [ tuple(data[i:i+self.num_key_words]), data[i+self.num_key_words] ]
 
   """
@@ -68,7 +67,8 @@ class MarkovChain:
       self.__seed_me(rand_seed=len(self.lookup_dict))
 
       idx = random.randint(0, len(self.lookup_dict)-1)
-      chain_head = list(self.lookup_dict.keys()[idx])
+      chain_head = list(self.lookup_dict.keys())[idx]
+      #index applies outside
       context.extend(chain_head)
 
       while len(output) < (max_length - self.num_key_words):
